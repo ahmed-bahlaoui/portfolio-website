@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, Linkedin, Github, ChevronDown } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, ChevronDown, Download } from "lucide-react";
 
 const socials = [
   { icon: Mail, href: "mailto:AhmedBahlaoui@outlook.com", label: "Email" },
@@ -47,20 +47,30 @@ const HeroSection = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className="flex items-center justify-center gap-5"
+        className="flex flex-col items-center gap-6"
       >
-        {socials.map(({ icon: Icon, href, label }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={label}
-            className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
-          >
-            <Icon size={18} />
-          </a>
-        ))}
+        <a
+          href="/Ahmed_Bahlaoui_CV.pdf"
+          download
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors font-medium text-sm"
+        >
+          <Download size={16} />
+          Download CV
+        </a>
+        <div className="flex items-center justify-center gap-5">
+          {socials.map(({ icon: Icon, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+            >
+              <Icon size={18} />
+            </a>
+          ))}
+        </div>
       </motion.div>
     </div>
 
