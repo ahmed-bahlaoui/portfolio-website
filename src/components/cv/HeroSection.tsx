@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, Linkedin, Github, ChevronDown, Download } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, ChevronDown, Download, Eye } from "lucide-react";
 
 const socials = [
   { icon: Mail, href: "mailto:AhmedBahlaoui@outlook.com", label: "Email" },
@@ -49,14 +49,25 @@ const HeroSection = () => (
         transition={{ duration: 0.5, delay: 0.5 }}
         className="flex flex-col items-center gap-6"
       >
-        <a
-          href={`${import.meta.env.BASE_URL}Ahmed_Bahlaoui_CV.pdf`}
-          download="Ahmed_Bahlaoui_CV.pdf"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors font-medium text-sm"
-        >
-          <Download size={16} />
-          Download CV
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href={`${import.meta.env.BASE_URL}Ahmed_Bahlaoui_CV.pdf`}
+            download="Ahmed_Bahlaoui_CV.pdf"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors font-medium text-sm"
+          >
+            <Download size={16} />
+            Download CV
+          </a>
+          <a
+            href={`${import.meta.env.BASE_URL}Ahmed_Bahlaoui_CV.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors font-medium text-sm"
+          >
+            <Eye size={16} />
+            View CV
+          </a>
+        </div>
         <div className="flex items-center justify-center gap-5">
           {socials.map(({ icon: Icon, href, label }) => (
             <a
