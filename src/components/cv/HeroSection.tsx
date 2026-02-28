@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, Linkedin, Github, ChevronDown, Download, Eye } from "lucide-react";
+import { ChromaBackground } from "../ui/ChromaBackground";
 
 const socials = [
   { icon: Mail, href: "mailto:AhmedBahlaoui@outlook.com", label: "Email" },
@@ -9,9 +10,11 @@ const socials = [
 ];
 
 const HeroSection = () => (
-  <section className="relative min-h-screen flex items-center justify-center hero-gradient text-primary-foreground overflow-hidden">
-    {/* Decorative circles */}
-    <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-white/5 blur-xl" />
+  <section className="relative min-h-screen hero-gradient text-primary-foreground overflow-hidden">
+    <ChromaBackground className="absolute inset-0 z-0" radius={800} />
+    <div className="absolute inset-0 flex items-center justify-center z-10">
+      {/* Decorative circles */}
+      <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-white/5 blur-xl pointer-events-none" />
     <div className="absolute bottom-20 left-10 w-96 h-96 rounded-full bg-white/5 blur-2xl" />
 
     <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
@@ -85,14 +88,15 @@ const HeroSection = () => (
       </motion.div>
     </div>
 
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.2, duration: 1 }}
-      className="absolute bottom-10 left-1/2 -translate-x-1/2"
-    >
-      <ChevronDown size={24} className="animate-bounce opacity-50" />
-    </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      >
+        <ChevronDown size={24} className="animate-bounce opacity-50" />
+      </motion.div>
+    </div>
   </section>
 );
 

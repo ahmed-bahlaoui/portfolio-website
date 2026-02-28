@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import { ChromaCard } from "../ui/ChromaCard";
 
 const skillGroups = [
   { label: "Programming", skills: ["Python", "C++", "SQL", "JavaScript", "Java"] },
@@ -32,19 +33,21 @@ const SkillsSection = () => (
       >
         {skillGroups.map((group) => (
           <motion.div key={group.label} variants={item}>
-            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3 font-display">
-              {group.label}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {group.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 text-sm rounded-lg bg-secondary text-secondary-foreground font-medium hover:bg-accent/10 hover:text-accent transition-colors cursor-default"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+            <ChromaCard className="bg-card rounded-xl p-5 border border-border shadow-sm chroma-card-border-transition h-full">
+              <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3 font-display">
+                {group.label}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-4 py-2 text-sm rounded-lg bg-secondary text-secondary-foreground font-medium hover:bg-accent/10 hover:text-accent transition-colors cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </ChromaCard>
           </motion.div>
         ))}
       </motion.div>

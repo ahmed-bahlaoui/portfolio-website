@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { Briefcase } from "lucide-react";
+import { ChromaCard } from "../ui/ChromaCard";
 
 const ExperienceSection = () => (
   <section className="py-24 px-6">
@@ -16,7 +17,7 @@ const ExperienceSection = () => (
         <div className="absolute -left-[13px] top-0 w-6 h-6 rounded-full bg-accent flex items-center justify-center">
           <Briefcase size={12} className="text-accent-foreground" />
         </div>
-        <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
+        <ChromaCard className="bg-card rounded-xl p-6 shadow-sm border border-border chroma-card-border-transition">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
             <h3 className="text-lg font-semibold font-display text-foreground">IT Support Assistant</h3>
             <span className="text-sm text-muted-foreground">Jan 2024 – May 2024</span>
@@ -27,7 +28,7 @@ const ExperienceSection = () => (
             <li>• Maintained and cleaned internal databases, ensuring data accuracy and reliability.</li>
             <li>• Monitored network performance metrics and improved system stability.</li>
           </ul>
-        </div>
+        </ChromaCard>
       </motion.div>
     </div>
   </section>
