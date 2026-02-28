@@ -50,8 +50,8 @@ const HeroSection = () => (
         className="flex flex-col items-center gap-6"
       >
         <a
-          href="/Ahmed_Bahlaoui_CV.pdf"
-          download
+          href={`${import.meta.env.BASE_URL}Ahmed_Bahlaoui_CV.pdf`}
+          download="Ahmed_Bahlaoui_CV.pdf"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors font-medium text-sm"
         >
           <Download size={16} />
