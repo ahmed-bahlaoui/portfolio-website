@@ -22,10 +22,14 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleClick = (href: string) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    // Small delay so the menu closes before scrolling on mobile
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   return (
@@ -53,15 +57,16 @@ const Navbar = () => {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
           {links.map((l) => (
-            <button
+            <a
               key={l.label}
-              onClick={() => handleClick(l.href)}
+              href={l.href}
+              onClick={(e) => handleClick(e, l.href)}
               className={`text-xs font-medium tracking-wide uppercase transition-colors hover:text-accent ${
                 scrolled ? "text-muted-foreground" : "text-primary-foreground/70"
               }`}
             >
               {l.label}
-            </button>
+            </a>
           ))}
         </div>
 
@@ -88,13 +93,14 @@ const Navbar = () => {
           >
             <div className="flex flex-col px-6 py-4 gap-3">
               {links.map((l) => (
-                <button
+                <a
                   key={l.label}
-                  onClick={() => handleClick(l.href)}
-                  className="text-sm text-muted-foreground hover:text-accent transition-colors text-left py-1"
+                  href={l.href}
+                  onClick={(e) => handleClick(e, l.href)}
+                  className="text-sm text-muted-foreground hover:text-accent transition-colors text-left py-2"
                 >
                   {l.label}
-                </button>
+                </a>
               ))}
             </div>
           </motion.div>
