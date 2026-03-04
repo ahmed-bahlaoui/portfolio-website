@@ -8,7 +8,7 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
-import { ChromaBackground } from "../ui/ChromaBackground";
+import DarkVeil from "../ui/DarkVeil";
 import { ShinyText } from "../ui/shiny-text";
 import { TextType } from "../ui/text-type";
 
@@ -24,8 +24,10 @@ const socials = [
 ];
 
 const HeroSection = () => (
-  <section className="relative min-h-screen hero-gradient text-primary-foreground overflow-hidden">
-    <ChromaBackground className="absolute inset-0 z-0" radius={800} />
+  <section className="relative min-h-screen bg-background text-primary-foreground overflow-hidden">
+    <div className="absolute inset-0 z-0">
+      <DarkVeil speed={2} />
+    </div>
     <div className="absolute inset-0 flex items-center justify-center z-10">
       {/* Decorative circles */}
       <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-white/5 blur-xl pointer-events-none" />
