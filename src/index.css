@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -24,7 +24,7 @@
     --muted: 220 15% 94%;
     --muted-foreground: 220 10% 46%;
 
-    --accent: 200 80% 50%;
+    --accent: 220 55% 38%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,11 +32,16 @@
 
     --border: 220 15% 88%;
     --input: 220 15% 88%;
-    --ring: 200 80% 50%;
+    --ring: 220 55% 38%;
 
     --radius: 0.75rem;
 
-    --hero-gradient: linear-gradient(135deg, hsl(220 60% 20%), hsl(220 50% 30%), hsl(200 60% 35%));
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(220 60% 20%),
+      hsl(220 50% 30%),
+      hsl(200 60% 35%)
+    );
     --section-alt: 220 20% 95%;
 
     --sidebar-background: 0 0% 98%;
@@ -56,20 +61,25 @@
     --card-foreground: 210 40% 95%;
     --popover: 220 25% 11%;
     --popover-foreground: 210 40% 95%;
-    --primary: 200 80% 55%;
+    --primary: 220 50% 55%;
     --primary-foreground: 220 25% 8%;
     --secondary: 220 20% 16%;
     --secondary-foreground: 210 40% 95%;
     --muted: 220 20% 16%;
     --muted-foreground: 215 20% 60%;
-    --accent: 200 80% 55%;
+    --accent: 220 50% 62%;
     --accent-foreground: 220 25% 8%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 220 20% 18%;
     --input: 220 20% 18%;
-    --ring: 200 80% 55%;
-    --hero-gradient: linear-gradient(135deg, hsl(220 30% 10%), hsl(220 40% 15%), hsl(200 50% 20%));
+    --ring: 220 50% 62%;
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(220 30% 10%),
+      hsl(220 40% 15%),
+      hsl(200 50% 20%)
+    );
     --section-alt: 220 25% 10%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -89,11 +99,16 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", sans-serif;
   }
 }
 
@@ -107,7 +122,7 @@
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(200 80% 55%), hsl(220 70% 60%));
+    background: linear-gradient(135deg, hsl(220 55% 38%), hsl(220 50% 50%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
