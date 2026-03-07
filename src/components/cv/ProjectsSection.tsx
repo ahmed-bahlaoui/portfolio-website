@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { ExternalLink } from "lucide-react";
-import { ChromaCard } from "../ui/ChromaCard";
+import { SpotlightCard } from "../ui/SpotlightCard";
 
 const projects = [
   {
@@ -60,7 +60,7 @@ const ProjectsSection = () => (
             key={p.title}
             variants={item}
           >
-            <ChromaCard className="bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow group chroma-card-border-transition h-full">
+            <SpotlightCard className="bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow group h-full">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="text-base font-semibold font-display text-foreground leading-snug">{p.title}</h3>
                 <ExternalLink size={14} className="text-muted-foreground mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -82,7 +82,7 @@ const ProjectsSection = () => (
                   <li key={i}>• {pt}</li>
                 ))}
               </ul>
-            </ChromaCard>
+            </SpotlightCard>
           </motion.div>
         ))}
       </motion.div>

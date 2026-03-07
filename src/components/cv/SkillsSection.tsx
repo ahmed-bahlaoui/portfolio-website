@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
-import { ChromaCard } from "../ui/ChromaCard";
+import { SpotlightCard } from "../ui/SpotlightCard";
 import {
   SiPython,
   SiCplusplus,
@@ -113,11 +113,10 @@ const SkillsSection = () => (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {group.skills.map((skill) => (
                 <motion.div key={skill.name} variants={item}>
-                  <ChromaCard className="bg-card/40 backdrop-blur-md rounded-2xl p-6 border border-white/5 shadow-sm chroma-card-border-transition h-full flex flex-col items-center justify-center gap-4 hover:bg-white/10 transition-colors group cursor-default relative overflow-hidden">
-                    <div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-                      style={{ backgroundColor: skill.color }}
-                    />
+                  <SpotlightCard 
+                    className="bg-card/40 backdrop-blur-md rounded-2xl p-6 border border-white/5 shadow-sm h-full flex flex-col items-center justify-center gap-4 group cursor-default"
+                    spotlightColor={`${skill.color}33`} // Default to 20% opacity of the brand color by appending hex alpha
+                  >
                     <skill.icon 
                       className="w-12 h-12 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1 relative z-10" 
                       style={{ color: skill.color }} 
@@ -125,7 +124,7 @@ const SkillsSection = () => (
                     <span className="text-sm font-medium text-foreground/90 text-center relative z-10">
                       {skill.name}
                     </span>
-                  </ChromaCard>
+                  </SpotlightCard>
                 </motion.div>
               ))}
             </div>

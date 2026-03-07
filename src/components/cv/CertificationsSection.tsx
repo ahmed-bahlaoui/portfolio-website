@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { Award } from "lucide-react";
-import { ChromaCard } from "../ui/ChromaCard";
+import { SpotlightCard } from "../ui/SpotlightCard";
 
 const certs = [
   { name: "Supervised Machine Learning: Regression and Classification", issuer: "Coursera" },
@@ -23,13 +23,13 @@ const CertificationsSection = () => (
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
           >
-            <ChromaCard className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border chroma-card-border-transition h-full">
+            <SpotlightCard className="flex items-start gap-3 bg-card rounded-xl p-5 border border-border h-full group">
               <Award size={18} className="text-accent mt-0.5 flex-shrink-0" />
               <div>
                 <p className="text-sm font-medium text-foreground">{c.name}</p>
                 <p className="text-xs text-muted-foreground mt-1">{c.issuer}</p>
               </div>
-            </ChromaCard>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { Heart } from "lucide-react";
-import { ChromaCard } from "../ui/ChromaCard";
+import { SpotlightCard } from "../ui/SpotlightCard";
 
 const VolunteeringSection = () => (
   <section id="volunteering" className="py-24 px-6">
@@ -13,7 +13,7 @@ const VolunteeringSection = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <ChromaCard className="bg-card rounded-xl p-6 border border-border shadow-sm chroma-card-border-transition">
+        <SpotlightCard className="bg-card rounded-xl p-6 border border-border shadow-sm group">
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1">
               <Heart size={20} className="text-accent" />
@@ -31,7 +31,7 @@ const VolunteeringSection = () => (
               </p>
             </div>
           </div>
-        </ChromaCard>
+        </SpotlightCard>
       </motion.div>
     </div>
   </section>
