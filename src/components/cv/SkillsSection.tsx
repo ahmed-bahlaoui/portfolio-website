@@ -1,13 +1,82 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { ChromaCard } from "../ui/ChromaCard";
+import {
+  SiPython,
+  SiCplusplus,
+  SiMysql,
+  SiJavascript,
+  SiScikitlearn,
+  SiTensorflow,
+  SiPytorch,
+  SiPandas,
+  SiNumpy,
+  SiGit,
+  SiDocker,
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa6";
+import {
+  Code2,
+  BrainCircuit,
+  BarChart3,
+  Lightbulb,
+  Wrench,
+  Cog,
+  CheckCircle2,
+  Network,
+  Calculator,
+  LineChart
+} from "lucide-react";
 
+// Using Lucide icons for concepts where brand logos aren't applicable
 const skillGroups = [
-  { label: "Programming", skills: ["Python", "C++", "SQL", "JavaScript", "Java"] },
-  { label: "Machine Learning", skills: ["scikit-learn", "TensorFlow", "PyTorch"] },
-  { label: "Data Analysis", skills: ["Pandas", "NumPy", "Matplotlib"] },
-  { label: "Concepts", skills: ["Feature Engineering", "Model Evaluation", "Supervised & Unsupervised Learning", "Statistical Analysis"] },
-  { label: "Tools", skills: ["Git", "Docker"] },
+  {
+    label: "Programming",
+    icon: Code2,
+    skills: [
+      { name: "Python", icon: SiPython, color: "#3776AB" },
+      { name: "C++", icon: SiCplusplus, color: "#00599C" },
+      { name: "SQL", icon: SiMysql, color: "#4479A1" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "Java", icon: FaJava, color: "#007396" },
+    ],
+  },
+  {
+    label: "Machine Learning",
+    icon: BrainCircuit,
+    skills: [
+      { name: "scikit-learn", icon: SiScikitlearn, color: "#F7931E" },
+      { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
+      { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
+    ],
+  },
+  {
+    label: "Data Analysis",
+    icon: BarChart3,
+    skills: [
+      { name: "Pandas", icon: SiPandas, color: "#150458" },
+      { name: "NumPy", icon: SiNumpy, color: "#013243" },
+      { name: "Matplotlib", icon: LineChart, color: "#11557c" },
+    ],
+  },
+  {
+    label: "Concepts",
+    icon: Lightbulb,
+    skills: [
+      { name: "Feature Eng.", icon: Cog, color: "#8b5cf6" },
+      { name: "Model Eval.", icon: CheckCircle2, color: "#10b981" },
+      { name: "ML Design", icon: Network, color: "#f43f5e" },
+      { name: "Statistics", icon: Calculator, color: "#3b82f6" },
+    ],
+  },
+  {
+    label: "Tools",
+    icon: Wrench,
+    skills: [
+      { name: "Git", icon: SiGit, color: "#F05032" },
+      { name: "Docker", icon: SiDocker, color: "#2496ED" },
+    ],
+  },
 ];
 
 const container = {
@@ -16,41 +85,53 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  hidden: { opacity: 0, scale: 0.95, y: 20 },
+  show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 const SkillsSection = () => (
-  <section id="skills" className="py-24 px-6">
-    <div className="max-w-4xl mx-auto">
+  <section id="skills" className="py-24 px-6 relative z-10">
+    <div className="max-w-5xl mx-auto">
       <SectionHeading title="Skills" />
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="space-y-6"
-      >
+      <div className="space-y-16 mt-12">
         {skillGroups.map((group) => (
-          <motion.div key={group.label} variants={item}>
-            <ChromaCard className="bg-card rounded-xl p-5 border border-border shadow-sm chroma-card-border-transition h-full">
-              <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3 font-display">
+          <motion.div
+            key={group.label}
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="space-y-6"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <group.icon className="w-8 h-8 text-foreground/80" />
+              <h3 className="text-2xl font-bold text-foreground font-display tracking-tight uppercase">
                 {group.label}
               </h3>
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-4 py-2 text-sm rounded-lg bg-secondary text-secondary-foreground font-medium hover:bg-accent/10 hover:text-accent transition-colors cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </ChromaCard>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {group.skills.map((skill) => (
+                <motion.div key={skill.name} variants={item}>
+                  <ChromaCard className="bg-card/40 backdrop-blur-md rounded-2xl p-6 border border-white/5 shadow-sm chroma-card-border-transition h-full flex flex-col items-center justify-center gap-4 hover:bg-white/10 transition-colors group cursor-default relative overflow-hidden">
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                      style={{ backgroundColor: skill.color }}
+                    />
+                    <skill.icon 
+                      className="w-12 h-12 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1 relative z-10" 
+                      style={{ color: skill.color }} 
+                    />
+                    <span className="text-sm font-medium text-foreground/90 text-center relative z-10">
+                      {skill.name}
+                    </span>
+                  </ChromaCard>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   </section>
 );
