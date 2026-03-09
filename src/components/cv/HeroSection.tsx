@@ -8,6 +8,7 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
+import { SiDatacamp } from "react-icons/si";
 import { ShinyText } from "../ui/shiny-text";
 import { TextType } from "../ui/text-type";
 
@@ -20,6 +21,11 @@ const socials = [
     label: "LinkedIn",
   },
   { icon: Github, href: "https://github.com/ahmed-bahlaoui", label: "GitHub" },
+  {
+    icon: SiDatacamp,
+    href: "https://www.datacamp.com/portfolio/ahmedbahlaoui",
+    label: "DataCamp",
+  },
 ];
 
 const HeroSection = () => (
@@ -37,7 +43,7 @@ const HeroSection = () => (
           className="text-sm tracking-[0.3em] uppercase opacity-70 mb-6 font-sans"
         >
           <ShinyText
-            text="AI & Data Science Engineer"
+            text="AI & Data Science Engineering Student"
             disabled={false}
             speed={3}
             className=""
@@ -68,8 +74,7 @@ const HeroSection = () => (
           className="text-lg md:text-xl opacity-80 leading-relaxed max-w-2xl mx-auto mb-10 font-light"
         >
           Engineering student with strong foundations in statistics, machine
-          learning, and data modeling. Skilled in translating complex datasets
-          into actionable insights.
+          learning, and data modeling. Skilled at building end-to-end machine learning pipelines and deploying real world ML entreprise solutions.
         </motion.p>
 
         <motion.div
